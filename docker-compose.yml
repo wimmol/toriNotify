@@ -1,11 +1,16 @@
-# Use postgres/example user/password credentials
-version: '3.9'
+version: "3.8"
 
 services:
   bot:
-    image: bot
+    build: .
+    container_name: tori_notify_bot
+    volumes:
+      - sqlite_data:/app/database.db
+    environment:
+      - BOT_TOKEN=7665233820:AAHcu1sa_0LVxN45_7ldxMD_iVqs6_3NWp0
+      - ALLOWED_CHAT_ID=-1002405799261
+      - DATABASE_URL=sqlite:///app/database.db
     restart: always
-    depends_on:
-      - db
-    ports:
-      - "8080:8080"
+
+volumes:
+  bot_data:  # Define a persistent volume

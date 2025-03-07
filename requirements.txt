@@ -1,3 +1,5 @@
 requests~=2.32.3
 aiogram~=3.10.0
 python-dotenv~=1.0.1
+SQLAlchemy~=2.0.38
+schedule~=1.2.2
